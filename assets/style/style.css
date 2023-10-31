@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 .card-img-top{
     width: 4rem;
     height: auto;
 }
-
+h2{
+    font-family: 'Agbalumo', sans-serif;
+}
+h5{
+    font-family: 'Lobster', sans-serif;
+}
+.overflow-x-scroll{
+    color: white;
+}
