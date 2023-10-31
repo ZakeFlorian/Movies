@@ -11,5 +11,7 @@ h5{
     font-family: 'Lobster', sans-serif;
 }
 .overflow-x-scroll{
-    color: white;
+    scrollbar-color: white;
+    white-space: nowrap;
+    visibility: visible;
 }
