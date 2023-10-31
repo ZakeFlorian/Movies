@@ -9,14 +9,50 @@ fetch(`https://api.themoviedb.org/3/movie/now_playing?language=fr-FR&page=1`, op
   .then(response => response.json())
   .then(data => {
     console.log(data)
+    let index = 0
     for (const movie of data.results) {
-      releaseHTML.innerHTML += `
-    <div class="container row">
-    <img id="imageList" src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="affiche film">
-    <h5 class="text-center">${movie.title}</h5>
+      const infosRelease = document.querySelector('#release');
+
+      // Créer un lien avec l'ID du film dans l'URL
+      const link = document.createElement('div');
+      link.classList.add("col-3")
+
+      // Liste des images des films dernièrement sortis
+      const releaseHTML = `
+    <a href="profil.html?id=${movie.id}"><img class="img-fluid" id="imageLatest" src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="affiche film"></a>
     
-    </div>
     `
+      // Assigner la structure HTML au lien
+      link.innerHTML = releaseHTML;
+
+      // Ajouter le lien au conteneur
+      infosRelease.appendChild(link);
+      index++
+    }
+
+  })
+fetch('https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1', options)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    let index = 0
+    for (const movie of data.results) {
+      const infosPopular = document.querySelector('#popular');
+      // Créer un lien avec l'ID du film dans l'URL
+      const link = document.createElement('div');
+      link.classList.add("col-3")
+      // Liste des images de films plus populaires
+      const popularHTML = `
+    <a href="profil.html?id=${movie.id}"><img class="img-fluid" id="imageLatest" src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="affiche film"></a>
+    
+    `
+
+      // Assigner la structure HTML au lien
+      link.innerHTML = popularHTML;
+
+      // Ajouter le lien au conteneur
+      infosPopular.appendChild(link);
+      index++
     }
 
   })
